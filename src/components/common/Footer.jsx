@@ -23,20 +23,19 @@ const Footer = () => {
           <Grid item xs={12} md={4}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
               <Box
+                component="img"
+                src="/assets/logo.png"
+                alt={doctorProfile.name}
                 sx={{
                   width: 44,
                   height: 44,
                   borderRadius: '14px',
-                  bgcolor: '#E11D48',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#FFF',
+                  objectFit: 'cover',
                   boxShadow: '0 4px 16px rgba(225, 29, 72, 0.4)',
+                  bgcolor: '#FFF',
+                  p: 0.25,
                 }}
-              >
-                <LocalHospitalIcon fontSize="medium" />
-              </Box>
+              />
               <Box>
                 <Typography variant="h6" fontWeight={800} color="#FFF" sx={{ lineHeight: 1.1 }}>
                   {doctorProfile.name}

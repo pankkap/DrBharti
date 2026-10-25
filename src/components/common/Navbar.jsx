@@ -147,21 +147,32 @@ const Navbar = () => {
               }}
             >
               <motion.div
-                whileHover={{ scale: 1.05, rotate: 5 }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 style={{
-                  width: 44,
-                  height: 44,
+                  width: 46,
+                  height: 46,
                   borderRadius: '14px',
-                  background: 'linear-gradient(135deg, #0A2540 0%, #E11D48 100%)',
+                  overflow: 'hidden',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#FFF',
-                  boxShadow: '0 4px 16px rgba(10, 37, 64, 0.25)',
+                  boxShadow: '0 4px 14px rgba(225, 29, 72, 0.22)',
+                  border: '1.5px solid rgba(225, 29, 72, 0.2)',
+                  flexShrink: 0,
+                  backgroundColor: '#FFF',
                 }}
               >
-                <LocalHospitalIcon sx={{ fontSize: 26 }} />
+                <Box
+                  component="img"
+                  src="/assets/logo.png"
+                  alt="Dr. Bharti Clinic Logo"
+                  sx={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                  }}
+                />
               </motion.div>
               <Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -302,19 +313,18 @@ const Navbar = () => {
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
               <Box
+                component="img"
+                src="/assets/logo.png"
+                alt="Dr. Bharti Logo"
                 sx={{
                   width: 36,
                   height: 36,
                   borderRadius: '10px',
-                  bgcolor: '#0A2540',
-                  color: '#FFF',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  objectFit: 'cover',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
+                  border: '1px solid rgba(225, 29, 72, 0.2)',
                 }}
-              >
-                <LocalHospitalIcon fontSize="small" />
-              </Box>
+              />
               <Typography variant="subtitle1" fontWeight={800} color="#0A2540">
                 Menu Navigation
               </Typography>
