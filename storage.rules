@@ -1,0 +1,16 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Allow full access to DoctorApp assets and gallery/profile uploads
+    match /DoctorApp/{allPaths=**} {
+      allow read, write: if true;
+    }
+
+    // Deny access to any files outside the DoctorApp folder
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

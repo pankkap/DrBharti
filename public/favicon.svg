@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <!-- Background Gradient: Deep Clinical Navy to Radiant Dental Teal -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#092847"/>
+      <stop offset="45%" stop-color="#0F4C81"/>
+      <stop offset="100%" stop-color="#0D9488"/>
+    </linearGradient>
+
+    <!-- Tooth Body Gradient: Pristine Pearl White with subtle cool blue-teal depth -->
+    <linearGradient id="toothGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="70%" stop-color="#F0FDFA"/>
+      <stop offset="100%" stop-color="#CCFBF1"/>
+    </linearGradient>
+
+    <!-- Sparkle Gradient: Radiant Cyan-Gold Shine -->
+    <linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#2DD4BF"/>
+    </linearGradient>
+
+    <!-- Shadow filter for 3D depth -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#031220" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Soft Glow Filter -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Squircle App Icon Container -->
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="url(#bgGrad)" filter="url(#shadow)"/>
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="none" stroke="rgba(255, 255, 255, 0.22)" stroke-width="8"/>
+
+  <!-- Subtle Medical Cross watermark in background -->
+  <g opacity="0.08" fill="#FFFFFF">
+    <rect x="236" y="80" width="40" height="352" rx="20"/>
+    <rect x="80" y="236" width="352" height="40" rx="20"/>
+  </g>
+
+  <!-- Dental Tooth Icon Silhouette (Smooth, Anatomical, Modern) -->
+  <g filter="url(#shadow)">
+    <path
+      d="M256 120
+         C 285 120, 312 126, 332 136
+         C 358 149, 376 172, 376 204
+         C 376 244, 360 286, 344 330
+         C 334 358, 318 388, 302 402
+         C 288 414, 276 404, 270 380
+         C 264 354, 258 322, 256 312
+         C 254 322, 248 354, 242 380
+         C 236 404, 224 414, 210 402
+         C 194 388, 178 358, 168 330
+         C 152 286, 136 244, 136 204
+         C 136 172, 154 149, 180 136
+         C 200 126, 227 120, 256 120 Z"
+      fill="url(#toothGrad)"
+    />
+
+    <!-- Crown Anatomical Top Notch/Curvature Highlight -->
+    <path
+      d="M208 140
+         C 224 148, 238 152, 256 152
+         C 274 152, 288 148, 304 140
+         C 288 144, 272 146, 256 146
+         C 240 146, 224 144, 208 140 Z"
+      fill="#CBD5E1"
+      opacity="0.6"
+    />
+
+    <!-- Tooth Gloss / Specular Arc Highlight -->
+    <path
+      d="M175 168
+         C 165 186, 160 210, 162 238
+         C 163 248, 170 248, 172 238
+         C 174 214, 178 194, 188 178
+         C 192 172, 182 162, 175 168 Z"
+      fill="#FFFFFF"
+      opacity="0.75"
+    />
+  </g>
+
+  <!-- Radiant Dental Sparkle (Top-Right of Tooth) -->
+  <g transform="translate(356, 130)" filter="url(#glow)">
+    <!-- 4-Point Star -->
+    <path
+      d="M0 -38
+         C 2 -12, 12 -2, 38 0
+         C 12 2, 2 12, 0 38
+         C -2 12, -12 2, -38 0
+         C -12 -2, -2 -12, 0 -38 Z"
+      fill="url(#sparkleGrad)"
+    />
+    <!-- Center Bright Dot -->
+    <circle cx="0" cy="0" r="7" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Secondary Tiny Micro-Sparkle -->
+  <g transform="translate(395, 180)">
+    <path
+      d="M0 -18
+         C 1 -6, 6 -1, 18 0
+         C 6 1, 1 6, 0 18
+         C -1 6, -6 1, -18 0
+         C -6 -1, -1 -6, 0 -18 Z"
+      fill="#67E8F9"
+      opacity="0.9"
+    />
+  </g>
+</svg>
