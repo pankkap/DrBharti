@@ -165,7 +165,7 @@ const AdminLayout = () => {
               whiteSpace: 'nowrap',
             }}
           >
-            {adminUser?.email || 'admin@beta-labs.in'}
+            {adminUser?.email || import.meta.env.VITE_ADMIN_EMAIL || 'dr.bhartidentalclinic@gmail.com'}
           </Typography>
         </Box>
       </Box>

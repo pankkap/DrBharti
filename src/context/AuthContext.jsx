@@ -94,13 +94,21 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       console.warn('Firebase Email login failed, checking demo fallback:', error.code, error.message);
 
-      // Fallback: If user enters the default demo credentials or auth provider isn't enabled yet
-      if (email === 'admin@doctor.com' && password === 'admin123') {
+      // Fallback: If user enters the configured admin credentials or legacy demo
+      const envEmail = (import.meta.env.VITE_ADMIN_EMAIL || 'dr.bhartidentalclinic@gmail.com').trim().toLowerCase();
+      const envPassword = import.meta.env.VITE_ADMIN_PASSWORD || 'Bharti@123';
+
+      if (
+        (email.trim().toLowerCase() === envEmail && password === envPassword) ||
+        (email === 'admin@doctor.com' && password === 'admin123') ||
+        (email === 'admin@beta-labs.in' && password === 'admin123')
+      ) {
+        const activeDocId = import.meta.env.VITE_DOCTOR_ID || 'doc002';
         const demoUser = {
-          uid: 'demo_doctor_admin',
-          doctorId: 'demo_doctor_admin',
-          name: 'Dr. John Smith (Admin)',
-          email: 'admin@doctor.com',
+          uid: 'dr_bharti_admin',
+          doctorId: activeDocId,
+          name: 'Dr. Bharti',
+          email: email.trim(),
           role: 'Admin',
           isDemo: true,
         };

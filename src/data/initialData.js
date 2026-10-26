@@ -22,7 +22,7 @@ export const INITIAL_DOCTOR_PROFILE = {
   experience: "16+ Years Experience • 15,000+ Smiles Created",
   registrationNo: "DCI-99482104",
   bio: "Dr. Bharti is a renowned Dental Surgeon and Aesthetic Specialist. With advanced degrees from King George's Medical University / B.D.S. Lucknow, M.P.H., and Fellowship in Medical Cosmetology, she specializes in facial aesthetics, cosmetic smile transformations, laser whitening, painless root canals, and invisible aligners at Greater Noida Aesthetic Dental Clinic.",
-  email: "drbharti@aestheticdental.com",
+  email: import.meta.env?.VITE_ADMIN_EMAIL || "dr.bhartidentalclinic@gmail.com",
   phone: "+91 88087 31295",
   whatsappNumber: "918808731295",
   address: "A 69, Sector P 3, Greater Noida",

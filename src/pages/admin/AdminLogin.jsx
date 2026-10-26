@@ -53,9 +53,12 @@ const GoogleIcon = () => (
   </svg>
 );
 
+const defaultAdminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'dr.bhartidentalclinic@gmail.com';
+const defaultAdminPassword = import.meta.env.VITE_ADMIN_PASSWORD || 'Bharti@123';
+
 const AdminLogin = () => {
-  const [email, setEmail] = useState('admin@beta-labs.in');
-  const [password, setPassword] = useState('admin123');
+  const [email, setEmail] = useState(defaultAdminEmail);
+  const [password, setPassword] = useState(defaultAdminPassword);
   const [showPassword, setShowPassword] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -100,8 +103,8 @@ const AdminLogin = () => {
   };
 
   const handleFillDemo = () => {
-    setEmail('admin@beta-labs.in');
-    setPassword('admin123');
+    setEmail(defaultAdminEmail);
+    setPassword(defaultAdminPassword);
     setErrorMsg('');
   };
 
@@ -339,7 +342,7 @@ const AdminLogin = () => {
                 }}
               >
                 <Typography variant="caption" sx={{ fontSize: '0.75rem', color: '#881337' }}>
-                  🔑 <strong>Admin:</strong> <code>admin@beta-labs.in</code> | <code>admin123</code>
+                  🔑 <strong>Admin:</strong> <code>{defaultAdminEmail}</code> | <code>{defaultAdminPassword}</code>
                 </Typography>
                 <Button
                   size="small"
