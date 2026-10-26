@@ -25,7 +25,6 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ShieldIcon from '@mui/icons-material/Shield';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import BoltIcon from '@mui/icons-material/Bolt';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useAuth } from '../../context/AuthContext';
@@ -53,12 +52,9 @@ const GoogleIcon = () => (
   </svg>
 );
 
-const defaultAdminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'dr.bhartidentalclinic@gmail.com';
-const defaultAdminPassword = import.meta.env.VITE_ADMIN_PASSWORD || 'Bharti@123';
-
 const AdminLogin = () => {
-  const [email, setEmail] = useState(defaultAdminEmail);
-  const [password, setPassword] = useState(defaultAdminPassword);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -100,12 +96,6 @@ const AdminLogin = () => {
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const handleFillDemo = () => {
-    setEmail(defaultAdminEmail);
-    setPassword(defaultAdminPassword);
-    setErrorMsg('');
   };
 
   return (
@@ -324,47 +314,6 @@ const AdminLogin = () => {
                 </Typography>
               </Box>
 
-              {/* Admin Credentials Box */}
-              <Paper
-                elevation={0}
-                sx={{
-                  p: 1.1,
-                  px: 1.5,
-                  borderRadius: '10px',
-                  bgcolor: '#fce5e5',
-                  border: '1px solid #fecdd3',
-                  mb: 2,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  flexWrap: 'wrap',
-                  gap: 1,
-                }}
-              >
-                <Typography variant="caption" sx={{ fontSize: '0.75rem', color: '#881337' }}>
-                  🔑 <strong>Admin:</strong> <code>{defaultAdminEmail}</code> | <code>{defaultAdminPassword}</code>
-                </Typography>
-                <Button
-                  size="small"
-                  onClick={handleFillDemo}
-                  startIcon={<BoltIcon sx={{ fontSize: 13 }} />}
-                  sx={{
-                    fontSize: '0.68rem',
-                    fontWeight: 800,
-                    color: '#E11D48',
-                    bgcolor: '#FFE4E6',
-                    py: 0.2,
-                    px: 0.8,
-                    borderRadius: '6px',
-                    textTransform: 'none',
-                    minWidth: 'auto',
-                    '&:hover': { bgcolor: '#FECDD3' },
-                  }}
-                >
-                  Auto-Fill
-                </Button>
-              </Paper>
-
               {errorMsg && (
                 <Alert severity="error" sx={{ mb: 2, py: 0.3, borderRadius: '8px', fontSize: '0.8rem' }}>
                   {errorMsg}
@@ -374,19 +323,20 @@ const AdminLogin = () => {
               {/* SIGN IN FORM (Only Sign In Allowed) */}
               <form onSubmit={handleLogin}>
                 <TextField
-                  label="Doctor Email *"
+                  label="Doctor Email"
                   type="email"
                   fullWidth
                   size="small"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="doctor@clinic.com"
+                  placeholder="name@example.com"
+                  autoComplete="email"
                   sx={{ mb: 1.8 }}
                 />
 
                 <TextField
-                  label="Password *"
+                  label="Password"
                   type={showPassword ? 'text' : 'password'}
                   fullWidth
                   size="small"
@@ -394,6 +344,7 @@ const AdminLogin = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
+                  autoComplete="current-password"
                   sx={{ mb: 2.2 }}
                   InputProps={{
                     endAdornment: (
