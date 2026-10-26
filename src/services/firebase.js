@@ -3,9 +3,9 @@ import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 
-// Firebase configuration using user credentials with environment override support
+// Firebase configuration using environment variables
 export const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || 'AIzaSyAw3MGNqduh1yNpuXuQTU5iBkg9KGXIeOw',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || '',
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || 'doctor-app-a26e4.firebaseapp.com',
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || 'doctor-app-a26e4',
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || 'doctor-app-a26e4.firebasestorage.app',

@@ -180,10 +180,11 @@ const AdminLayout = () => {
                 px: 2,
                 py: 0.5,
                 display: 'block',
-                color: '#64748B',
+                color: '#94A3B8',
                 fontWeight: 800,
-                fontSize: '0.68rem',
+                fontSize: '0.7rem',
                 letterSpacing: '0.08em',
+                textTransform: 'uppercase',
               }}
             >
               {section.category}
@@ -200,21 +201,49 @@ const AdminLayout = () => {
                       selected={isActive}
                       sx={{
                         borderRadius: 2.5,
-                        py: 1,
+                        py: 1.1,
                         px: 1.8,
-                        color: isActive ? '#FFFFFF' : '#94A3B8',
+                        color: isActive ? '#FFFFFF !important' : '#CBD5E1 !important',
                         background: isActive
                           ? 'linear-gradient(90deg, #E11D48 0%, #BE123C 100%) !important'
                           : 'transparent',
                         boxShadow: isActive ? '0 4px 14px rgba(225, 29, 72, 0.4)' : 'none',
                         transition: 'all 0.2s ease',
                         position: 'relative',
+                        '& .MuiListItemText-primary': {
+                          color: isActive ? '#FFFFFF !important' : '#CBD5E1 !important',
+                          fontSize: '0.88rem',
+                          fontWeight: isActive ? 700 : 500,
+                          letterSpacing: '-0.01em',
+                          transition: 'color 0.2s ease',
+                        },
+                        '& .MuiListItemIcon-root': {
+                          color: isActive ? '#FFFFFF !important' : '#94A3B8 !important',
+                          transition: 'color 0.2s ease',
+                        },
+                        '&.Mui-selected': {
+                          background: 'linear-gradient(90deg, #E11D48 0%, #BE123C 100%) !important',
+                          color: '#FFFFFF !important',
+                          '&:hover': {
+                            background: 'linear-gradient(90deg, #E11D48 0%, #BE123C 100%) !important',
+                          },
+                          '& .MuiListItemText-primary': {
+                            color: '#FFFFFF !important',
+                            fontWeight: 700,
+                          },
+                          '& .MuiListItemIcon-root': {
+                            color: '#FFFFFF !important',
+                          },
+                        },
                         '&:hover': {
-                          bgcolor: isActive ? '#E11D48' : 'rgba(255,255,255,0.06)',
-                          color: '#FFFFFF',
+                          bgcolor: isActive ? '#E11D48' : 'rgba(255,255,255,0.08)',
+                          color: '#FFFFFF !important',
                           transform: 'translateX(4px)',
                           '& .MuiListItemIcon-root': {
-                            color: '#FDA4AF',
+                            color: '#FDA4AF !important',
+                          },
+                          '& .MuiListItemText-primary': {
+                            color: '#FFFFFF !important',
                           },
                         },
                       }}
@@ -234,7 +263,7 @@ const AdminLayout = () => {
                       )}
                       <ListItemIcon
                         sx={{
-                          color: isActive ? '#FFFFFF' : '#64748B',
+                          color: isActive ? '#FFFFFF !important' : '#94A3B8 !important',
                           minWidth: 36,
                           '& svg': { fontSize: 20 },
                           transition: 'color 0.2s ease',
@@ -245,9 +274,12 @@ const AdminLayout = () => {
                       <ListItemText
                         primary={item.text}
                         primaryTypographyProps={{
-                          fontSize: '0.86rem',
+                          fontSize: '0.88rem',
                           fontWeight: isActive ? 700 : 500,
                           letterSpacing: '-0.01em',
+                          sx: {
+                            color: isActive ? '#FFFFFF !important' : '#CBD5E1 !important',
+                          },
                         }}
                       />
                       {item.text === 'Manage Appointments' && pendingCount > 0 && (

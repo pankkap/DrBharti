@@ -410,7 +410,7 @@ export const INITIAL_WHATSAPP_SETTINGS = {
   provider: "evolution_go",
   serverUrl: import.meta.env?.VITE_EVOLUTION_SERVER_URL || "https://wa.beta-labs.in",
   instanceName: import.meta.env?.VITE_EVOLUTION_INSTANCE_NAME || "dr_bharti",
-  apiKey: import.meta.env?.VITE_EVOLUTION_API_KEY || "ev_sec_3d8fc7838bd6240461a4ddb3",
+  apiKey: import.meta.env?.VITE_EVOLUTION_API_KEY || "",
   doctorWhatsAppNumber: "918808731295",
   isLiveApiEnabled: true,
 };
