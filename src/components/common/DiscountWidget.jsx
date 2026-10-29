@@ -36,6 +36,7 @@ const DiscountWidget = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [discountCode, setDiscountCode] = useState('');
   const [copied, setCopied] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
 
   const navigate = useNavigate();
   const { discountConfig, addDiscountLead, addContactRequest } = useApp() || {};
@@ -119,8 +120,6 @@ const DiscountWidget = () => {
     }
     navigate('/book-appointment', { state: { promoCode: discountCode } });
   };
-
-  const [isDismissed, setIsDismissed] = useState(false);
 
   return (
     <>

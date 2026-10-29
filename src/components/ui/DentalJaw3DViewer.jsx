@@ -400,11 +400,11 @@ const DentalJaw3DViewer = () => {
 
     // 8. Render Animation Loop
     let animationFrameId;
-    let clock = new THREE.Clock();
+    const startTime = performance.now();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      const elapsedTime = clock.getElapsedTime();
+      const elapsedTime = (performance.now() - startTime) * 0.001;
 
       // Smooth camera / rotation interpolation when a mode is clicked
       if (isTransitioningRef.current) {
