@@ -9,6 +9,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useApp } from '../../context/AppContext';
@@ -218,8 +219,8 @@ const Footer = () => {
               mb: 2.5,
             }}
           >
-            {/* Copyright & Certified Standards */}
-            <Box>
+            {/* Copyright, Certified Standards & Beta-Labs Developer Showcase */}
+            <Box sx={{ maxWidth: { xs: '100%', md: '750px' } }}>
               <Typography variant="body2" sx={{ color: '#E2E8F0', fontWeight: 600, mb: 0.5 }}>
                 © {new Date().getFullYear()} {doctorProfile.name} Practice Center. All rights reserved.
               </Typography>
@@ -232,6 +233,7 @@ const Footer = () => {
                   gap: 1,
                   flexWrap: 'wrap',
                   fontSize: '0.78rem',
+                  mb: 1.75,
                 }}
               >
                 <span>HIPAA Compliant & NABH Standards</span>
@@ -240,6 +242,81 @@ const Footer = () => {
                 <span style={{ color: '#334155' }}>•</span>
                 <span>Instant WhatsApp Confirmation Enabled</span>
               </Typography>
+
+              {/* Beta-Labs Developer Showcase & Inbound Client Lead Generator */}
+              <Box
+                component="a"
+                href="https://www.beta-labs.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Beta-Labs | High-Performance Websites & AI Solutions"
+                sx={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 1,
+                  p: { xs: '7px 12px', sm: '6px 14px' },
+                  borderRadius: { xs: '10px', sm: '9999px' },
+                  bgcolor: 'rgba(56, 189, 248, 0.04)',
+                  border: '1px solid rgba(56, 189, 248, 0.22)',
+                  textDecoration: 'none',
+                  transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.25)',
+                  flexWrap: 'wrap',
+                  '&:hover': {
+                    bgcolor: 'rgba(56, 189, 248, 0.1)',
+                    borderColor: '#38BDF8',
+                    boxShadow: '0 4px 18px rgba(56, 189, 248, 0.25)',
+                    transform: 'translateY(-1px)',
+                    '& .beta-arrow': {
+                      transform: 'translateX(3px)',
+                      color: '#38BDF8',
+                    },
+                  },
+                }}
+              >
+                <AutoAwesomeIcon sx={{ fontSize: 15, color: '#38BDF8' }} />
+                <Typography
+                  variant="caption"
+                  sx={{
+                    color: '#94A3B8',
+                    fontSize: '0.78rem',
+                    fontWeight: 500,
+                  }}
+                >
+                  Engineered & Designed by{' '}
+                  <strong style={{ color: '#38BDF8', fontWeight: 800, letterSpacing: '0.02em' }}>
+                    Beta-Labs
+                  </strong>
+                </Typography>
+                <span style={{ color: '#475569', display: { xs: 'none', sm: 'inline' } }}>•</span>
+                <Typography
+                  variant="caption"
+                  sx={{
+                    color: '#F1F5F9',
+                    fontSize: '0.78rem',
+                    fontWeight: 600,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 0.5,
+                  }}
+                >
+                  Want a website like this for your practice or business?{' '}
+                  <span style={{ color: '#38BDF8', textDecoration: 'underline', textUnderlineOffset: '3px', fontWeight: 700 }}>
+                    Build With Us
+                  </span>
+                  <span
+                    className="beta-arrow"
+                    style={{
+                      display: 'inline-block',
+                      transition: 'transform 0.2s ease',
+                      color: '#38BDF8',
+                      fontWeight: 800,
+                    }}
+                  >
+                    →
+                  </span>
+                </Typography>
+              </Box>
             </Box>
 
             {/* Legal Links & Admin Login */}
