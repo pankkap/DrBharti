@@ -194,133 +194,23 @@ const Footer = () => {
         </Container>
       </Box>
 
-      {/* 2. SEPARATE DEDICATED SUB-FOOTER WITH ACTION BUTTON CLEARANCE SECTION */}
+      {/* 2. SEPARATE DEDICATED SUB-FOOTER */}
       <Box
         component="section"
-        aria-label="Footer Bottom and Quick Access Dock"
+        aria-label="Footer Bottom Bar"
         sx={{
           bgcolor: '#020B14',
           color: '#94A3B8',
           borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-          pt: { xs: 4, md: 5 },
-          pb: { xs: 15, sm: 16, md: 18 }, // Generous clearance so floating buttons never cover text or links
+          pt: { xs: 3, md: 3.5 },
+          pb: { xs: '84px', md: '98px' }, // Clearance so text is never covered by floating action buttons
           position: 'relative',
         }}
       >
-        <Container maxWidth="xl">
-          {/* Main Legal & Navigation Row */}
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: { xs: 'column', md: 'row' },
-              justifyContent: 'space-between',
-              alignItems: { xs: 'flex-start', md: 'center' },
-              gap: 2.5,
-              mb: 2.5,
-            }}
-          >
-            {/* Copyright, Certified Standards & Beta-Labs Developer Showcase */}
-            <Box sx={{ maxWidth: { xs: '100%', md: '750px' } }}>
-              <Typography variant="body2" sx={{ color: '#E2E8F0', fontWeight: 600, mb: 0.5 }}>
-                © {new Date().getFullYear()} {doctorProfile.name} Practice Center. All rights reserved.
-              </Typography>
-              <Typography
-                variant="caption"
-                sx={{
-                  color: '#64748B',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 1,
-                  flexWrap: 'wrap',
-                  fontSize: '0.78rem',
-                  mb: 1.75,
-                }}
-              >
-                <span>HIPAA Compliant & NABH Standards</span>
-                <span style={{ color: '#334155' }}>•</span>
-                <span>256-Bit SSL Encrypted Medical Records</span>
-                <span style={{ color: '#334155' }}>•</span>
-                <span>Instant WhatsApp Confirmation Enabled</span>
-              </Typography>
-
-              {/* Beta-Labs Developer Showcase & Inbound Client Lead Generator */}
-              <Box
-                component="a"
-                href="https://www.beta-labs.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Beta-Labs | High-Performance Websites & AI Solutions"
-                sx={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 1,
-                  p: { xs: '7px 12px', sm: '6px 14px' },
-                  borderRadius: { xs: '10px', sm: '9999px' },
-                  bgcolor: 'rgba(56, 189, 248, 0.04)',
-                  border: '1px solid rgba(56, 189, 248, 0.22)',
-                  textDecoration: 'none',
-                  transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-                  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.25)',
-                  flexWrap: 'wrap',
-                  '&:hover': {
-                    bgcolor: 'rgba(56, 189, 248, 0.1)',
-                    borderColor: '#38BDF8',
-                    boxShadow: '0 4px 18px rgba(56, 189, 248, 0.25)',
-                    transform: 'translateY(-1px)',
-                    '& .beta-arrow': {
-                      transform: 'translateX(3px)',
-                      color: '#38BDF8',
-                    },
-                  },
-                }}
-              >
-                <AutoAwesomeIcon sx={{ fontSize: 15, color: '#38BDF8' }} />
-                <Typography
-                  variant="caption"
-                  sx={{
-                    color: '#94A3B8',
-                    fontSize: '0.78rem',
-                    fontWeight: 500,
-                  }}
-                >
-                  Engineered & Designed by{' '}
-                  <strong style={{ color: '#38BDF8', fontWeight: 800, letterSpacing: '0.02em' }}>
-                    Beta-Labs
-                  </strong>
-                </Typography>
-                <span style={{ color: '#475569', display: { xs: 'none', sm: 'inline' } }}>•</span>
-                <Typography
-                  variant="caption"
-                  sx={{
-                    color: '#F1F5F9',
-                    fontSize: '0.78rem',
-                    fontWeight: 600,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 0.5,
-                  }}
-                >
-                  Want a website like this for your practice or business?{' '}
-                  <span style={{ color: '#38BDF8', textDecoration: 'underline', textUnderlineOffset: '3px', fontWeight: 700 }}>
-                    Build With Us
-                  </span>
-                  <span
-                    className="beta-arrow"
-                    style={{
-                      display: 'inline-block',
-                      transition: 'transform 0.2s ease',
-                      color: '#38BDF8',
-                      fontWeight: 800,
-                    }}
-                  >
-                    →
-                  </span>
-                </Typography>
-              </Box>
-            </Box>
-
-            {/* Legal Links & Admin Login */}
-            <Stack direction="row" spacing={2} alignItems="center" flexWrap="wrap">
+        <Container maxWidth="md">
+          <Stack spacing={1.5} alignItems="center" textAlign="center">
+            {/* 1. Legal Links & Staff Portal (Centered) */}
+            <Stack direction="row" spacing={2} alignItems="center" justifyContent="center" flexWrap="wrap">
               <Typography
                 component={Link}
                 to="/privacy-policy"
@@ -339,7 +229,7 @@ const Footer = () => {
               </Typography>
 
               <Typography variant="caption" sx={{ color: '#334155' }}>
-                |
+                •
               </Typography>
 
               <Button
@@ -347,14 +237,14 @@ const Footer = () => {
                 to="/admin/login"
                 onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}
                 size="small"
-                startIcon={<LockOutlinedIcon sx={{ fontSize: 14 }} />}
+                startIcon={<LockOutlinedIcon sx={{ fontSize: 13 }} />}
                 sx={{
                   color: '#E2E8F0',
                   bgcolor: 'rgba(255, 255, 255, 0.05)',
                   border: '1px solid rgba(255, 255, 255, 0.12)',
                   borderRadius: '8px',
                   px: 1.5,
-                  py: 0.5,
+                  py: 0.35,
                   fontSize: '0.75rem',
                   fontWeight: 600,
                   textTransform: 'none',
@@ -368,57 +258,75 @@ const Footer = () => {
                 Staff & Doctor Portal
               </Button>
             </Stack>
-          </Box>
 
-          {/* Dedicated Visual Dock Section for the 3 Floating Buttons */}
-          <Divider sx={{ borderColor: 'rgba(255, 255, 255, 0.05)', my: 2 }} />
-
-          {/* Desktop/Tablet Dock Labels (perfectly aligned with the 3 floating buttons) */}
-          <Box
-            sx={{
-              display: { xs: 'none', sm: 'flex' },
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              pt: 0.5,
-            }}
-          >
-            {/* Left Hint (Aligned with WhatsApp Floating Button) */}
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Box
-                sx={{
-                  width: 8,
-                  height: 8,
-                  borderRadius: '50%',
-                  bgcolor: '#10B981',
-                  boxShadow: '0 0 8px #10B981',
-                }}
-              />
-              <Typography variant="caption" sx={{ fontWeight: 600, fontSize: '0.74rem', letterSpacing: '0.02em', color: '#6EE7B7' }}>
-                WhatsApp Reception Online
-              </Typography>
-            </Box>
-
-            {/* Center Hint (Aligned with Call Doctor Floating Button) */}
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Typography variant="caption" sx={{ fontWeight: 600, fontSize: '0.74rem', letterSpacing: '0.02em', color: '#7DD3FC' }}>
-                Emergency Clinic Hotline: {doctorProfile.phone}
-              </Typography>
-            </Box>
-
-            {/* Right Hint (Aligned with AI Chatbot Floating Button) */}
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Typography variant="caption" sx={{ fontWeight: 600, fontSize: '0.74rem', letterSpacing: '0.02em', color: '#FDA4AF' }}>
-                24/7 AI Smart Booking Assistant
-              </Typography>
-            </Box>
-          </Box>
-
-          {/* Mobile Dock Hint */}
-          <Box sx={{ display: { xs: 'block', sm: 'none' }, textAlign: 'center', pt: 0.5 }}>
-            <Typography variant="caption" sx={{ color: '#64748B', fontSize: '0.72rem' }}>
-              Tap the buttons below for instant WhatsApp, Call, or 24/7 AI Booking
+            {/* 2. Copyright (Centered) */}
+            <Typography variant="body2" sx={{ color: '#E2E8F0', fontWeight: 600, fontSize: '0.85rem' }}>
+              © {new Date().getFullYear()} {doctorProfile.name} Practice Center. All rights reserved.
             </Typography>
-          </Box>
+
+            {/* 3. Standards & Medical Compliance (Centered) */}
+            <Typography
+              variant="caption"
+              sx={{
+                color: '#64748B',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 1,
+                flexWrap: 'wrap',
+                fontSize: '0.76rem',
+              }}
+            >
+              <span>HIPAA Compliant & NABH Standards</span>
+              <span style={{ color: '#334155' }}>•</span>
+              <span>256-Bit SSL Encrypted Medical Records</span>
+              <span style={{ color: '#334155' }}>•</span>
+              <span>Instant WhatsApp Confirmation Enabled</span>
+            </Typography>
+
+            {/* 4. Beta-Labs Developer Showcase (Centered, Clean, without "Want a website" line) */}
+            <Box
+              component="a"
+              href="https://www.beta-labs.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Beta-Labs | www.beta-labs.in"
+              sx={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 0.8,
+                px: 1.8,
+                py: 0.5,
+                borderRadius: '9999px',
+                bgcolor: 'rgba(56, 189, 248, 0.04)',
+                border: '1px solid rgba(56, 189, 248, 0.22)',
+                textDecoration: 'none',
+                transition: 'all 0.25s ease',
+                '&:hover': {
+                  bgcolor: 'rgba(56, 189, 248, 0.12)',
+                  borderColor: '#38BDF8',
+                  transform: 'translateY(-1px)',
+                  boxShadow: '0 4px 14px rgba(56, 189, 248, 0.2)',
+                },
+              }}
+            >
+              <AutoAwesomeIcon sx={{ fontSize: 14, color: '#38BDF8' }} />
+              <Typography
+                variant="caption"
+                sx={{
+                  color: '#94A3B8',
+                  fontSize: '0.76rem',
+                  fontWeight: 500,
+                }}
+              >
+                Developed by{' '}
+                <strong style={{ color: '#38BDF8', fontWeight: 700 }}>
+                  Beta-Labs
+                </strong>{' '}
+                <span style={{ color: '#64748B' }}>(www.beta-labs.in)</span>
+              </Typography>
+            </Box>
+          </Stack>
         </Container>
       </Box>
     </>
